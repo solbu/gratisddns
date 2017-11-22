@@ -109,8 +109,8 @@ validateArg "$DYN_DOMAIN" "dyndomain"
 # Done parsing/validating arguments
 
 if [ -n "$SCHEDULE" ]; then
-  echo "Creating schedule to run this script every three hours and log to /tmp/gratisddns.log"
-  echo "01 0-23/3 * * * $USER $scriptPath -u $DDNSUSER -p $PASSWORD -a $ACCOUNT_DOMAIN -d $DYN_DOMAIN > /tmp/gratisddns.log 2>&1" | sudo tee "$crondPath" >/dev/null
+  echo "Creating schedule to run this script every 30 minutes and log to /tmp/gratisddns.log"
+  echo "0,30 * * * * $USER $scriptPath -u $DDNSUSER -p $PASSWORD -a $ACCOUNT_DOMAIN -d $DYN_DOMAIN > /tmp/gratisddns.log 2>&1" | sudo tee "$crondPath" >/dev/null
   exit
 fi
 
